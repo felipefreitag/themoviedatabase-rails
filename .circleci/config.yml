@@ -67,12 +67,12 @@ jobs:
       - run:
           name: run tests
           command: |
-            mkdir /coverage
+            mkdir /tmp/coverage
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
             ./cc-test-reporter before-build
             bundle exec rspec --format progress \
                             --format RspecJunitFormatter \
-                            --out /coverage/rspec.xml \
+                            --out /tmp/coverage/rspec.xml \
                             --format progress \
                             $TEST_FILES
             ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
