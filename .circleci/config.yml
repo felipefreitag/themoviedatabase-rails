@@ -42,6 +42,16 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      # Run Rubocop
+      - run:
+          name: run rubocop
+          command: bin/rubocop
+
+      # Run Slim-lint
+      - run:
+          name: run slim-lint
+          command: bin/slim-lint .
+
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
