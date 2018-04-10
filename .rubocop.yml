@@ -1,0 +1,30 @@
+require: rubocop-rspec
+AllCops:
+  DisplayCopNames: true
+  Include:
+    - '**/Rakefile'
+    - '**/Gemfile'
+    - '**/config.ru'
+  Exclude:
+    - 'bin/**/*'
+    - 'node_modules/**/*'
+    - '.gems/**/*'
+    - 'vendor/**/*'
+Style/HashSyntax:
+  Exclude:
+    - '**/subscription.rb'
+Rails:
+  Enabled: true
+Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+Rails/NotNullColumn:
+  Enabled: false
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
