@@ -1,2 +1,7 @@
 div
-  h1 Hello!
+  h1 Upcoming movies
+  h3 from TMDB
+div
+  - if @movies.present?
+    - @movies.each do |movie|
+      h4= movie['title']
