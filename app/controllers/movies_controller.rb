@@ -7,10 +7,14 @@ class MoviesController < ApplicationController
     @movies = data['results'].presence
   end
 
+  def show
+    data = fetch_data("movie/#{params[:id]}")
+    @movie = data.presence
+  end
+
   private
 
   def fetch_data(path)
-    base_path = 'https://api.themoviedb.org/3/'
     uri = "#{base_path}#{path}?api_key=#{ENV['API_KEY']}&language=en-US&"
     response = Excon.get(uri)
     return unless success?(response)

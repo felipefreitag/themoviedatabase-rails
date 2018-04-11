@@ -1,0 +1,6 @@
+.movie-card
+  h2
+    = link_to movie['title'], movie_path(movie['id'])
+  p= movie['genre_ids']
+  p= movie['release_date']
+  p= movie['poster_path']

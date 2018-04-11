@@ -1,0 +1,14 @@
+.movie
+  - if @movie
+    h2= @movie['title']
+    p
+      - @movie['genres'].each do |genre|
+        = genre['name']
+        '
+    p= @movie['release_date']
+    p= @movie['poster_path']
+    p= @movie['overview']
+  - else
+    h1 Movie not found.
+
+= link_to 'Back to list', movies_path

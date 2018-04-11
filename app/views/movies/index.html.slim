@@ -4,4 +4,4 @@ div
 div
   - if @movies.present?
     - @movies.each do |movie|
-      h4= movie['title']
+      = render partial: 'movie_card', locals: { movie: movie }
